@@ -5,7 +5,7 @@ import java.sql.*;
 public class Course {
 	private String name;
 	private int credits;
-	static String url = "jdbc:mysql://localhost:8889/Reggie";		// MySql
+	static String url = "jdbc:mysql://localhost:127.0.0.1/Reggie";		// MySql
 	static String username = "root";
 	static String password = "root";
 

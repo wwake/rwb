@@ -2,10 +2,10 @@ These files are to support the exercises in the Refactoring Workbook, by Bill Wa
 
 Each folder contains an exercise. 
 
-These files were updated in January, 2014 to modernize the Java (e.g., use generics), get rid of warning messages, and use a more modern JUnit style. 
+These files were updated in January, 2024 to modernize to Java 17, get rid of some warning messages, and upgrade to JUnit 5.x.
 
 If you prefer to work with the original files, they're in rwb-original.zip.
 
 Good luck!
   Bill Wake
-  January, 2014 
+  January, 2024
