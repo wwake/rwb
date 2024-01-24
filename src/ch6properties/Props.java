@@ -1,7 +1,5 @@
 package ch6properties;
 
-import ch6properties.MissingPropertiesException;
-
 import java.util.Properties;
 
 public class Props {

@@ -93,56 +93,50 @@ public class Table extends JFrame {
 
 		button = new JButton("Split");
 		panel.add(button);
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (selection == null)
-					return;
-				Card card = new Card(selection);
-				body.add(card, 0);
-				selection = card;
-				updateCost();
-				body.repaint();
-			}
+		button.addActionListener(e -> {
+			if (selection == null)
+				return;
+			Card card = new Card(selection);
+			body.add(card, 0);
+			selection = card;
+			updateCost();
+			body.repaint();
 		});
 
 		button = new JButton("Delete");
 		panel.add(button);
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (body.getComponentCount() == 0)
-					return;
+		button.addActionListener(e -> {
+			if (body.getComponentCount() == 0)
+				return;
 
-				body.remove(0);
-				selection = null;
-				if (body.getComponentCount() != 0)
-					selection = (Card) body.getComponent(0);
-				updateCost();
-				body.repaint();
-			}
+			body.remove(0);
+			selection = null;
+			if (body.getComponentCount() != 0)
+				selection = (Card) body.getComponent(0);
+			updateCost();
+			body.repaint();
 		});
 
 		button = new JButton("Plan");
 		panel.add(button);
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				StringBuffer report = new StringBuffer();
-				// Check for cards that need est. or splitting
-				for (int i = 0; i < body.getComponentCount(); i++) {
-					Card card = (Card) body.getComponent(i);
-					if (card.needsEstimate())
-						report.append("Needs estimate: " + card.title() + "\n");
-					else if (card.needsSplit())
-						report.append("Needs to be split: " + card.title() + "\n");
-				}
-
-				if (report.length() == 0)
-					JOptionPane.showMessageDialog(body,
-							"Plan OK; no cards need estimates or splitting", "Issues in plan",
-							JOptionPane.OK_OPTION);
-				else
-					JOptionPane.showMessageDialog(body, report.toString(), "Issues in plan",
-							JOptionPane.OK_OPTION);
+		button.addActionListener(e -> {
+			StringBuffer report = new StringBuffer();
+			// Check for cards that need est. or splitting
+			for (int i = 0; i < body.getComponentCount(); i++) {
+				Card card = (Card) body.getComponent(i);
+				if (card.needsEstimate())
+					report.append("Needs estimate: " + card.title() + "\n");
+				else if (card.needsSplit())
+					report.append("Needs to be split: " + card.title() + "\n");
 			}
+
+			if (report.length() == 0)
+				JOptionPane.showMessageDialog(body,
+						"Plan OK; no cards need estimates or splitting", "Issues in plan",
+						JOptionPane.OK_OPTION);
+			else
+				JOptionPane.showMessageDialog(body, report.toString(), "Issues in plan",
+						JOptionPane.OK_OPTION);
 		});
 	}
 
@@ -151,25 +145,21 @@ public class Table extends JFrame {
 
 		button = new JButton("Cost");
 		panel.add(button);
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (selection == null)
-					return;
-				selection.rotateCost();
-				updateCost();
-			}
+		button.addActionListener(e -> {
+			if (selection == null)
+				return;
+			selection.rotateCost();
+			updateCost();
 		});
 
 		button = new JButton("Velocity");
 		panel.add(button);
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				velocity++;
-				if (velocity >= 10)
-					velocity = 1;
-				updateCost();
+		button.addActionListener(e -> {
+			velocity++;
+			if (velocity >= 10)
+				velocity = 1;
+			updateCost();
 
-			}
 		});
 	}
 

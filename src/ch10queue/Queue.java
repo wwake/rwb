@@ -3,7 +3,7 @@ package ch10queue;
 import java.util.ArrayList;
 
 public class Queue {
-	ArrayList<String> delegate = new ArrayList<String>();
+	ArrayList<String> delegate = new ArrayList<>();
 
 	public Queue() {
 	}
@@ -17,7 +17,7 @@ public class Queue {
 	}
 
 	public String removeFront() {
-		String result = delegate.get(0).toString();
+		String result = delegate.get(0);
 		delegate.remove(0);
 		return result;
 	}
