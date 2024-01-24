@@ -9,7 +9,7 @@ public class Schedule {
 	static final int minCredits = 12;
 	static final int maxCredits = 18;
 	boolean overloadAuthorized = false;
-	ArrayList<Offering> schedule = new ArrayList<Offering>();
+	ArrayList<Offering> schedule = new ArrayList<>();
 
 	static String url = "jdbc:mysql://localhost:8889/Reggie"; // MySql
 	static String username = "root";

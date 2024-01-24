@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ReportTest {
     @Test
     public void testReport() throws IOException {
-        ArrayList<Machine> line = new ArrayList<Machine>();
+        ArrayList<Machine> line = new ArrayList<>();
         line.add(new Machine("mixer", "left"));
 
         Machine extruder = new Machine("extruder", "center");
@@ -32,7 +32,7 @@ public class ReportTest {
         String expected =
             "FACTORY REPORT\n" +
             "Machine mixer\nMachine extruder\n" +
-	    "Machine oven bin=chips\n\n" +
+	        "Machine oven bin=chips\n\n" +
             "Robot location=extruder bin=paste\n" +
             "========\n";
 

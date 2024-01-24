@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 // The clients are in one file for convenience; 
 // imagine them as non-test methods in separate client classes.
 
-public class PersonClient {
+public class PersonClientTests {
 	
 	public void client1(Writer out, Person person) throws IOException {
         out.write(person.first);

@@ -11,7 +11,7 @@ public class Report {
 
         Iterator<Machine> line = machines.iterator();
         while (line.hasNext()) {
-            Machine machine = (Machine) line.next();
+            Machine machine = line.next();
             out.write("Machine " + machine.name());
 
             if (machine.bin() != null)

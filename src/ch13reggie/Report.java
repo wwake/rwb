@@ -6,25 +6,25 @@ public class Report {
 	public Report() {
 	}
 
-	Hashtable<Integer, ArrayList<String>> offeringToName = new Hashtable<Integer, ArrayList<String>>();
+	Hashtable<Integer, ArrayList<String>> offeringToName = new Hashtable<>();
 
 	public void populateMap() throws Exception {
 		Collection<Schedule> schedules = Schedule.all();
 		for (Iterator<Schedule> eachSchedule = schedules.iterator(); eachSchedule.hasNext();) {
-			Schedule schedule = (Schedule) eachSchedule.next();
+			Schedule schedule = eachSchedule.next();
 
 			for (Iterator<Offering> each = schedule.schedule.iterator(); each.hasNext();) {
-				Offering offering = (Offering) each.next();
+				Offering offering = each.next();
 				populateMapFor(schedule, offering);
 			}
 		}
 	}
 
 	private void populateMapFor(Schedule schedule, Offering offering) {
-		ArrayList<String> list = offeringToName.get(new Integer(offering.getId()));
+		ArrayList<String> list = offeringToName.get(Integer.valueOf(offering.getId()));
 		if (list == null) {
-			list = new ArrayList<String>();
-			offeringToName.put(new Integer(offering.getId()), list);
+			list = new ArrayList<>();
+			offeringToName.put(Integer.valueOf(offering.getId()), list);
 		}
 		list.add(schedule.name);
 	}
@@ -33,7 +33,7 @@ public class Report {
 		buffer.append(offering.getCourse().getName() + " " + offering.getDaysTimes() + "\n");
 
 		for (Iterator<String> iterator = list.iterator(); iterator.hasNext();) {
-			String s = (String) iterator.next();
+			String s = iterator.next();
 			buffer.append("\t" + s + "\n");
 		}
 	}

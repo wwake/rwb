@@ -25,7 +25,7 @@ public class Table extends JFrame {
 
 		body = new Background(1000, 1000, 190);
 		body.addContainerListener(new ContainerListener() {
-			// Listen for container changes so we know when
+			// Listen for container changes, so we know when
 			// to update selection highlight
 			public void componentAdded(ContainerEvent e) {
 				resetSelection();
@@ -81,14 +81,12 @@ public class Table extends JFrame {
 		JButton button;
 		button = new JButton("New");
 		panel.add(button);
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Card card = new Card();
-				body.add(card, 0);
-				selection = card;
-				updateCost();
-				repaint();
-			}
+		button.addActionListener(e -> {
+			Card card = new Card();
+			body.add(card, 0);
+			selection = card;
+			updateCost();
+			repaint();
 		});
 
 		button = new JButton("Split");
@@ -133,10 +131,10 @@ public class Table extends JFrame {
 			if (report.length() == 0)
 				JOptionPane.showMessageDialog(body,
 						"Plan OK; no cards need estimates or splitting", "Issues in plan",
-						JOptionPane.OK_OPTION);
+						JOptionPane.INFORMATION_MESSAGE);
 			else
 				JOptionPane.showMessageDialog(body, report.toString(), "Issues in plan",
-						JOptionPane.OK_OPTION);
+						JOptionPane.INFORMATION_MESSAGE);
 		});
 	}
 
