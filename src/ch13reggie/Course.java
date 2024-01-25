@@ -2,18 +2,21 @@ package ch13reggie;
 
 import java.sql.*;
 
+import static java.lang.System.out;
+
 public class Course {
 	private String name;
 	private int credits;
-	static String url = "jdbc:mysql://localhost:127.0.0.1/Reggie";		// MySql
+	static String url = "jdbc:mysql://127.0.0.1:8889/Reggie";		// MySql
 	static String username = "root";
 	static String password = "root";
 
 
 	static {
 		try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();	// MySQL
+			Class.forName("com.mysql.cj.jdbc.Driver");	// MySQL
 		} catch (Exception ignored) {
+			out.println("Error creating driver " + ignored.getLocalizedMessage());
 		}
 	}
 

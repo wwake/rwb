@@ -2,21 +2,23 @@ package ch13reggie;
 
 import org.junit.jupiter.api.Test;
 
+import java.sql.*;
 import java.util.List;
 
+import static java.lang.System.out;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-public class TestSchedule  {
-	@Test
-	public void minCredits() {
+public class TestSchedule {
+    @Test
+    public void minCredits() {
         Schedule schedule = new Schedule("name");
         List<String> analysis = schedule.analysis();
         assertEquals(1, analysis.size());
         assertTrue(analysis.contains("Too few credits"));
     }
 
-	@Test
+    @Test
     public void justEnoughCredits() {
         Course cs110 = new Course("CS110", 11);
         Offering mwf10 = new Offering(1, cs110, "M10,W10,F10");
@@ -34,7 +36,7 @@ public class TestSchedule  {
         assertEquals(0, analysis.size());
     }
 
-	@Test
+    @Test
     public void maxCredits() {
         Course cs110 = new Course("CS110", 20);
         Offering mwf10 = new Offering(1, cs110, "M10,W10,F10");
@@ -49,7 +51,7 @@ public class TestSchedule  {
         assertEquals(0, analysis.size());
     }
 
-	@Test
+    @Test
     public void justBelowMax() {
         Course cs110 = new Course("CS110", 19);
         Offering mwf10 = new Offering(1, cs110, "M10,W10,F10");
@@ -67,7 +69,7 @@ public class TestSchedule  {
         assertEquals(0, analysis.size());
     }
 
-	@Test
+    @Test
     public void dupCourses() {
         Course cs110 = new Course("CS110", 6);
         Offering mwf10 = new Offering(1, cs110, "M10,W10,F10");
@@ -112,7 +114,7 @@ public class TestSchedule  {
         Course c = Course.create("CS202", 1);
         assertEquals("CS202", c.getName());
         assertEquals(1, c.getCredits());
-        
+
         Course c2 = Course.find("CS202");
         assertEquals("CS202", c2.getName());
 
