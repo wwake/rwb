@@ -15,8 +15,8 @@ public class Course {
 	static {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");	// MySQL
-		} catch (Exception ignored) {
-			out.println("Error creating driver " + ignored.getLocalizedMessage());
+		} catch (Exception e) {
+			out.println("Error creating driver " + e.getLocalizedMessage());
 		}
 	}
 

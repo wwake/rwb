@@ -16,8 +16,8 @@ public class Offering {
 	static {
 		try {
             Class.forName("com.mysql.cj.jdbc.Driver");	// MySQL
-		} catch (Exception ignored) {
-			out.println("Exception from driver: " + ignored.getLocalizedMessage());
+		} catch (Exception e) {
+			out.println("Exception from driver: " + e.getLocalizedMessage());
 		}
 	}
 

@@ -2,8 +2,10 @@ These files are to support the exercises in the Refactoring Workbook, by Bill Wa
 
 Each folder contains an exercise. 
 
-These files were updated in January, 2024 to modernize to Java 17, get rid of some warning messages,
+These files were updated in January, 2024 to modernize to Java 17-18, get rid of some warning messages,
 upgrade to JUnit 5.x, and use Connector/J 8.3.0 for the SQL driver.
+
+Versions are tagged to indicate what language they support, though there's not much difference between them.
 
 If you prefer to work with the original files, they're in rwb-original.zip.
 
